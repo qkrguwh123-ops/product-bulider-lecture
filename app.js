@@ -49,6 +49,7 @@
     // 2. STATE MANAGEMENT
     // ==========================================
     const state = {
+        theme: localStorage.getItem('lotto_theme') || 'dark',
         mode: 'random', // 'random', 'hot', 'cold', 'balanced', 'dream', 'custom'
         gameCount: 5,
         isDynamic: true,
@@ -646,6 +647,8 @@
         const confetti = new ConfettiEngine('confetti-canvas');
 
         // Cache DOM elements
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const themeIcon = document.getElementById('theme-icon');
         const soundToggleBtn = document.getElementById('sound-toggle-btn');
         const soundIcon = document.getElementById('sound-icon');
         const historyToggleBtn = document.getElementById('history-toggle-btn');
@@ -686,6 +689,28 @@
         const closeHistoryBottomBtn = document.getElementById('close-history-bottom-btn');
         const clearAllHistoryBtn = document.getElementById('clear-all-history-btn');
         const historyListContainer = document.getElementById('history-list-container');
+
+        // Theme controller
+        function applyTheme(theme) {
+            document.body.dataset.theme = theme;
+            if (themeIcon) {
+                themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+            }
+            if (themeToggleBtn) {
+                themeToggleBtn.title = theme === 'dark' ? '화이트 모드로 전환' : '다크 모드로 전환';
+            }
+            localStorage.setItem('lotto_theme', theme);
+        }
+        applyTheme(state.theme);
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                sound.initContext();
+                state.theme = state.theme === 'dark' ? 'light' : 'dark';
+                applyTheme(state.theme);
+                showToast(state.theme === 'dark' ? '다크 모드가 적용되었습니다 🌙' : '화이트 모드가 적용되었습니다 ☀️');
+            });
+        }
 
         // Sound state update
         function updateSoundUI() {

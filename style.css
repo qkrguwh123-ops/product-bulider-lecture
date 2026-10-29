@@ -1,8 +1,12 @@
 /* ==========================================================================
-   LOTTO LUXE 6/45 - Premium Luxury Dark Styling
+   LOTTO LUXE 6/45 - Premium Styling (Dark & Light Theme Support)
    ========================================================================== */
 
-:root {
+/* --------------------------------------------------------------------------
+   THEME VARIABLES
+   -------------------------------------------------------------------------- */
+
+:root, body, body[data-theme="dark"] {
     --bg-dark: #090d16;
     --bg-card: rgba(18, 26, 43, 0.75);
     --bg-card-border: rgba(255, 255, 255, 0.08);
@@ -30,9 +34,195 @@
 
     --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-heading: 'Montserrat', 'Pretendard', sans-serif;
+
+    /* Semantic Components Variables */
+    --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    --header-bg: rgba(18, 26, 43, 0.55);
+    --header-border: rgba(255, 255, 255, 0.05);
+
+    --icon-btn-bg: rgba(255, 255, 255, 0.06);
+    --icon-btn-border: rgba(255, 255, 255, 0.1);
+    --icon-btn-hover: rgba(255, 255, 255, 0.14);
+
+    --ticker-bg: linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 50%, rgba(16, 185, 129, 0.1) 100%);
+    --ticker-border: rgba(245, 158, 11, 0.25);
+    --ticker-text: #e2e8f0;
+
+    --globe-bg: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.8) 75%, rgba(10, 15, 30, 0.95) 100%);
+    --globe-shadow: inset 0 0 45px rgba(245, 158, 11, 0.15), inset -6px -6px 20px rgba(0, 0, 0, 0.8), 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.2);
+    --globe-border: 2px solid rgba(255, 255, 255, 0.12);
+
+    --tab-bg: rgba(255, 255, 255, 0.04);
+    --tab-border: rgba(255, 255, 255, 0.08);
+    --tab-color: #94a3b8;
+    --tab-hover-bg: rgba(255, 255, 255, 0.08);
+    --tab-hover-border: rgba(255, 255, 255, 0.2);
+    --tab-hover-color: #ffffff;
+    --tab-active-bg: linear-gradient(145deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
+    --tab-active-border: var(--gold-bright);
+    --tab-active-color: var(--gold-light);
+    --tab-active-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+
+    --strategy-info-bg: rgba(0, 0, 0, 0.25);
+    --extra-panel-bg: rgba(0, 0, 0, 0.3);
+    --extra-panel-border: rgba(255, 255, 255, 0.15);
+
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --input-border: rgba(255, 255, 255, 0.15);
+    --input-color: #ffffff;
+
+    --config-box-bg: rgba(0, 0, 0, 0.2);
+    --segmented-bg: rgba(255, 255, 255, 0.06);
+
+    --pick-ball-bg: rgba(255, 255, 255, 0.05);
+    --pick-ball-border: rgba(255, 255, 255, 0.1);
+    --pick-ball-color: #cbd5e1;
+
+    --empty-sphere-bg: radial-gradient(circle at 35% 35%, rgba(245, 158, 11, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
+
+    --game-row-bg: rgba(15, 22, 38, 0.7);
+    --game-row-border: rgba(255, 255, 255, 0.07);
+    --game-row-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --game-stat-bar-border: rgba(255, 255, 255, 0.06);
+    --stat-pill-bg: rgba(255, 255, 255, 0.04);
+    --stat-pill-border: rgba(255, 255, 255, 0.06);
+    --stat-pill-strong: #cbd5e1;
+
+    --sim-box-bg: linear-gradient(145deg, rgba(15, 23, 42, 0.8) 0%, rgba(20, 30, 55, 0.9) 100%);
+    --sim-display-bg: rgba(0, 0, 0, 0.35);
+    --sim-item-bg: rgba(255, 255, 255, 0.03);
+
+    --modal-bg: rgba(18, 26, 43, 0.95);
+    --modal-border: rgba(255, 255, 255, 0.1);
+    --history-item-bg: rgba(0, 0, 0, 0.3);
+
+    --orb-opacity: 0.35;
 }
 
-/* CSS Reset & Base */
+/* Light / White Theme */
+body[data-theme="light"] {
+    --bg-dark: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-border: rgba(226, 232, 240, 0.9);
+    --bg-card-hover: rgba(255, 255, 255, 1);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+
+    --card-shadow: 0 16px 36px rgba(15, 23, 42, 0.07);
+    --header-bg: rgba(255, 255, 255, 0.88);
+    --header-border: rgba(226, 232, 240, 0.9);
+
+    --icon-btn-bg: rgba(0, 0, 0, 0.04);
+    --icon-btn-border: rgba(0, 0, 0, 0.08);
+    --icon-btn-hover: rgba(0, 0, 0, 0.08);
+
+    --ticker-bg: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(16, 185, 129, 0.1) 100%);
+    --ticker-border: rgba(245, 158, 11, 0.28);
+    --ticker-text: #1e293b;
+
+    --globe-bg: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.75) 75%, rgba(219, 229, 242, 0.9) 100%);
+    --globe-shadow: inset 0 0 35px rgba(245, 158, 11, 0.2), inset -4px -4px 15px rgba(0, 0, 0, 0.08), 0 15px 35px rgba(15, 23, 42, 0.08);
+    --globe-border: 2px solid rgba(203, 213, 225, 0.8);
+
+    --tab-bg: rgba(241, 245, 249, 0.8);
+    --tab-border: rgba(203, 213, 225, 0.7);
+    --tab-color: #475569;
+    --tab-hover-bg: #e2e8f0;
+    --tab-hover-border: #cbd5e1;
+    --tab-hover-color: #0f172a;
+    --tab-active-bg: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%);
+    --tab-active-border: var(--gold-primary);
+    --tab-active-color: #92400e;
+    --tab-active-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
+
+    --strategy-info-bg: #fffbeb;
+    --extra-panel-bg: #f8fafc;
+    --extra-panel-border: #cbd5e1;
+
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
+    --input-color: #0f172a;
+
+    --config-box-bg: rgba(0, 0, 0, 0.04);
+    --segmented-bg: rgba(0, 0, 0, 0.05);
+
+    --pick-ball-bg: #f1f5f9;
+    --pick-ball-border: #cbd5e1;
+    --pick-ball-color: #334155;
+
+    --empty-sphere-bg: radial-gradient(circle at 35% 35%, rgba(245, 158, 11, 0.15) 0%, rgba(241, 245, 249, 0.95) 100%);
+
+    --game-row-bg: #ffffff;
+    --game-row-border: rgba(226, 232, 240, 0.95);
+    --game-row-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    --game-stat-bar-border: rgba(0, 0, 0, 0.08);
+    --stat-pill-bg: rgba(0, 0, 0, 0.04);
+    --stat-pill-border: rgba(0, 0, 0, 0.06);
+    --stat-pill-strong: #0f172a;
+
+    --sim-box-bg: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    --sim-display-bg: #f1f5f9;
+    --sim-item-bg: #ffffff;
+
+    --modal-bg: #ffffff;
+    --modal-border: #e2e8f0;
+    --history-item-bg: #f8fafc;
+
+    --orb-opacity: 0.18;
+}
+
+body[data-theme="light"] .logo-title {
+    color: #0f172a;
+}
+body[data-theme="light"] .results-title {
+    color: #0f172a;
+}
+body[data-theme="light"] .empty-state h3 {
+    color: #0f172a;
+}
+body[data-theme="light"] .sim-title h4 {
+    color: #0f172a;
+}
+body[data-theme="light"] .modal-header h3 {
+    color: #0f172a;
+}
+body[data-theme="light"] .action-btn {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #334155;
+}
+body[data-theme="light"] .action-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #0f172a;
+}
+body[data-theme="light"] .secondary-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #334155;
+}
+body[data-theme="light"] .secondary-btn:hover {
+    background: rgba(0, 0, 0, 0.09);
+}
+body[data-theme="light"] .toggle-slider {
+    background: rgba(0, 0, 0, 0.15);
+}
+body[data-theme="light"] .dream-result-card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(243, 232, 255, 0.6) 100%);
+    border-color: rgba(167, 139, 250, 0.5);
+}
+body[data-theme="light"] .dream-card-header h4 {
+    color: #6d28d9;
+}
+body[data-theme="light"] .dream-card-content {
+    color: #1e293b;
+}
+
+/* --------------------------------------------------------------------------
+   CSS RESET & BASE
+   -------------------------------------------------------------------------- */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -48,6 +238,7 @@ body {
     position: relative;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Ambient Background Glow Elements */
@@ -57,8 +248,9 @@ body {
     filter: blur(100px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.35;
+    opacity: var(--orb-opacity);
     animation: orbFloat 18s ease-in-out infinite alternate;
+    transition: opacity 0.3s ease;
 }
 
 .bg-glow-1 {
@@ -124,20 +316,24 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--bg-card-border);
     border-radius: var(--radius-lg);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Header */
+/* --------------------------------------------------------------------------
+   HEADER
+   -------------------------------------------------------------------------- */
+
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 18px;
-    background: rgba(18, 26, 43, 0.55);
+    background: var(--header-bg);
     backdrop-filter: blur(12px);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--header-border);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .header-left {
@@ -183,6 +379,7 @@ body {
     letter-spacing: 0.5px;
     color: #ffffff;
     line-height: 1.1;
+    transition: color 0.3s ease;
 }
 
 .logo-title span {
@@ -199,8 +396,8 @@ body {
 }
 
 .icon-btn {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--icon-btn-bg);
+    border: 1px solid var(--icon-btn-border);
     color: var(--text-primary);
     width: 42px;
     height: 42px;
@@ -215,7 +412,7 @@ body {
 }
 
 .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--icon-btn-hover);
     border-color: var(--gold-bright);
     transform: translateY(-2px);
 }
@@ -241,17 +438,21 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-/* Live Luck Ticker */
+/* --------------------------------------------------------------------------
+   LIVE LUCK TICKER
+   -------------------------------------------------------------------------- */
+
 .luck-ticker-bar {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 18px;
-    background: linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 50%, rgba(16, 185, 129, 0.1) 100%);
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    background: var(--ticker-bg);
+    border: 1px solid var(--ticker-border);
     border-radius: var(--radius-md);
     font-size: 0.88rem;
-    color: #e2e8f0;
+    color: var(--ticker-text);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .ticker-icon {
@@ -270,7 +471,10 @@ body {
     font-weight: 700;
 }
 
-/* Main Layout: 2 Columns */
+/* --------------------------------------------------------------------------
+   MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+
 .main-layout {
     display: grid;
     grid-template-columns: 410px 1fr;
@@ -292,7 +496,10 @@ body {
     gap: 22px;
 }
 
-/* Lottery Machine Container */
+/* --------------------------------------------------------------------------
+   LOTTERY MACHINE (CANVAS & GLOBE)
+   -------------------------------------------------------------------------- */
+
 .machine-container {
     display: flex;
     flex-direction: column;
@@ -304,16 +511,14 @@ body {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.8) 75%, rgba(10, 15, 30, 0.95) 100%);
-    box-shadow: inset 0 0 45px rgba(245, 158, 11, 0.15),
-                inset -6px -6px 20px rgba(0, 0, 0, 0.8),
-                0 15px 35px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(59, 130, 246, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: var(--globe-bg);
+    box-shadow: var(--globe-shadow);
+    border: var(--globe-border);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .globe-shine {
@@ -382,7 +587,10 @@ body {
     font-weight: 500;
 }
 
-/* Strategy Tabs */
+/* --------------------------------------------------------------------------
+   STRATEGY TABS
+   -------------------------------------------------------------------------- */
+
 .strategy-section {
     display: flex;
     flex-direction: column;
@@ -404,30 +612,30 @@ body {
 }
 
 .strategy-tab {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--tab-bg);
+    border: 1px solid var(--tab-border);
     border-radius: var(--radius-sm);
     padding: 9px 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    color: var(--text-secondary);
+    color: var(--tab-color);
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .strategy-tab:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text-primary);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--tab-hover-bg);
+    color: var(--tab-hover-color);
+    border-color: var(--tab-hover-border);
 }
 
 .strategy-tab.active {
-    background: linear-gradient(145deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
-    border-color: var(--gold-bright);
-    color: var(--gold-light);
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+    background: var(--tab-active-bg);
+    border-color: var(--tab-active-border);
+    color: var(--tab-active-color);
+    box-shadow: var(--tab-active-shadow);
 }
 
 .tab-icon {
@@ -443,11 +651,12 @@ body {
 .strategy-info {
     font-size: 0.8rem;
     line-height: 1.45;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--strategy-info-bg);
     padding: 10px 14px;
     border-radius: var(--radius-sm);
     border-left: 3px solid var(--gold-primary);
     color: var(--text-secondary);
+    transition: background 0.3s ease;
 }
 
 .info-tag {
@@ -456,16 +665,20 @@ body {
     margin-right: 4px;
 }
 
-/* Extra Panels (Dream & Custom) */
+/* --------------------------------------------------------------------------
+   EXTRA PANELS (DREAM & CUSTOM)
+   -------------------------------------------------------------------------- */
+
 .extra-panel {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(255, 255, 255, 0.15);
+    background: var(--extra-panel-bg);
+    border: 1px dashed var(--extra-panel-border);
     border-radius: var(--radius-md);
     padding: 14px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     animation: fadeIn 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -485,14 +698,14 @@ body {
 
 .dream-input-group input {
     flex: 1;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-color);
     padding: 10px 14px;
     border-radius: var(--radius-sm);
     font-size: 0.88rem;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.3s ease;
 }
 
 .dream-input-group input:focus {
@@ -503,7 +716,7 @@ body {
 .secondary-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
+    color: var(--text-primary);
     padding: 8px 14px;
     font-size: 0.82rem;
     font-weight: 600;
@@ -542,7 +755,7 @@ body {
 
 .dot-fixed { background: var(--emerald); box-shadow: 0 0 6px var(--emerald); }
 .dot-excluded { background: var(--ruby); box-shadow: 0 0 6px var(--ruby); }
-.dot-normal { background: rgba(255, 255, 255, 0.2); }
+.dot-normal { background: rgba(120, 120, 120, 0.3); }
 
 .text-link-btn {
     background: none;
@@ -566,9 +779,9 @@ body {
 .pick-ball-btn {
     width: 100%;
     aspect-ratio: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
+    background: var(--pick-ball-bg);
+    border: 1px solid var(--pick-ball-border);
+    color: var(--pick-ball-color);
     border-radius: 50%;
     font-size: 0.75rem;
     font-weight: 700;
@@ -581,20 +794,20 @@ body {
 
 .pick-ball-btn:hover {
     transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(245, 158, 11, 0.15);
 }
 
 .pick-ball-btn.state-fixed {
-    background: var(--emerald);
-    color: #fff;
-    border-color: #6ee7b7;
+    background: var(--emerald) !important;
+    color: #fff !important;
+    border-color: #6ee7b7 !important;
     box-shadow: 0 0 10px var(--emerald);
 }
 
 .pick-ball-btn.state-excluded {
-    background: #450a0a;
-    color: #fca5a5;
-    border-color: var(--ruby);
+    background: #450a0a !important;
+    color: #fca5a5 !important;
+    border-color: var(--ruby) !important;
     text-decoration: line-through;
     opacity: 0.7;
 }
@@ -608,19 +821,23 @@ body {
 }
 
 .filter-badge-list {
-    color: var(--gold-light);
+    color: var(--gold-bright);
     font-weight: 600;
 }
 
-/* Game Configuration (Game Count & Speed) */
+/* --------------------------------------------------------------------------
+   GAME CONFIGURATION
+   -------------------------------------------------------------------------- */
+
 .game-config-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--config-box-bg);
     padding: 12px 14px;
     border-radius: var(--radius-md);
+    transition: background 0.3s ease;
 }
 
 .config-group {
@@ -631,7 +848,7 @@ body {
 
 .segmented-control {
     display: flex;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--segmented-bg);
     border-radius: var(--radius-sm);
     padding: 3px;
     gap: 2px;
@@ -702,7 +919,10 @@ body {
     font-weight: 600;
 }
 
-/* Primary CTA Button */
+/* --------------------------------------------------------------------------
+   PRIMARY CTA BUTTON
+   -------------------------------------------------------------------------- */
+
 .primary-btn {
     position: relative;
     width: 100%;
@@ -760,7 +980,10 @@ body {
     font-size: 1.35rem;
 }
 
-/* Results Panel (Right Column) */
+/* --------------------------------------------------------------------------
+   RESULTS PANEL
+   -------------------------------------------------------------------------- */
+
 .results-panel {
     padding: 24px;
     display: flex;
@@ -775,7 +998,7 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--game-stat-bar-border);
 }
 
 .results-title {
@@ -797,7 +1020,7 @@ body {
 .action-btn {
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #e2e8f0;
+    color: var(--text-primary);
     padding: 7px 12px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -812,7 +1035,6 @@ body {
 .action-btn:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: var(--gold-bright);
-    color: #fff;
     transform: translateY(-1px);
 }
 
@@ -830,7 +1052,7 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(245, 158, 11, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
+    background: var(--empty-sphere-bg);
     border: 1px solid rgba(245, 158, 11, 0.3);
     display: flex;
     align-items: center;
@@ -854,7 +1076,7 @@ body {
 .quick-tips {
     margin-top: 10px;
     font-size: 0.82rem;
-    color: var(--gold-light);
+    color: var(--gold-bright);
     background: rgba(245, 158, 11, 0.08);
     border: 1px solid rgba(245, 158, 11, 0.2);
     padding: 8px 16px;
@@ -869,15 +1091,15 @@ body {
 }
 
 .game-row-card {
-    background: rgba(15, 22, 38, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--game-row-bg);
+    border: 1px solid var(--game-row-border);
     border-radius: var(--radius-md);
     padding: 16px 18px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s, border-color 0.2s;
+    box-shadow: var(--game-row-shadow);
+    transition: transform 0.2s, border-color 0.2s, background 0.3s ease;
     animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
@@ -887,13 +1109,13 @@ body {
 }
 
 .game-row-card:hover {
-    border-color: rgba(245, 158, 11, 0.3);
+    border-color: rgba(245, 158, 11, 0.4);
     transform: translateY(-2px);
 }
 
 .game-row-card.highlight-winner {
-    border: 1px solid var(--gold-bright);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+    border: 1px solid var(--gold-bright) !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4) !important;
 }
 
 .game-row-top {
@@ -948,7 +1170,7 @@ body {
     color: #ffffff;
     position: relative;
     user-select: none;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45),
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35),
                 inset -3px -4px 8px rgba(0, 0, 0, 0.45),
                 inset 2px 2px 5px rgba(255, 255, 255, 0.65);
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1033,24 +1255,25 @@ body {
     flex-wrap: wrap;
     font-size: 0.74rem;
     color: var(--text-muted);
-    border-top: 1px dashed rgba(255, 255, 255, 0.06);
+    border-top: 1px dashed var(--game-stat-bar-border);
     padding-top: 8px;
 }
 
 .stat-pill {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--stat-pill-bg);
     padding: 3px 8px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--stat-pill-border);
+    transition: background 0.3s ease;
 }
 
 .stat-pill strong {
-    color: #cbd5e1;
+    color: var(--stat-pill-strong);
 }
 
 .stat-pill.balanced {
-    border-color: rgba(16, 185, 129, 0.3);
-    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #10b981;
 }
 
 /* Dream Result Card */
@@ -1079,20 +1302,24 @@ body {
 
 .dream-card-content {
     font-size: 0.88rem;
-    color: #e2e8f0;
+    color: var(--text-primary);
     line-height: 1.55;
 }
 
-/* Virtual Simulator Box */
+/* --------------------------------------------------------------------------
+   VIRTUAL SIMULATOR BOX
+   -------------------------------------------------------------------------- */
+
 .simulator-box {
     margin-top: 10px;
-    background: linear-gradient(145deg, rgba(15, 23, 42, 0.8) 0%, rgba(20, 30, 55, 0.9) 100%);
+    background: var(--sim-box-bg);
     border: 1px solid rgba(245, 158, 11, 0.25);
     border-radius: var(--radius-md);
     padding: 18px;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    transition: background 0.3s ease;
 }
 
 .sim-header {
@@ -1146,8 +1373,8 @@ body {
 }
 
 .sim-winning-display {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--sim-display-bg);
+    border: 1px solid var(--game-stat-bar-border);
     border-radius: var(--radius-sm);
     padding: 14px;
     display: flex;
@@ -1189,7 +1416,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid var(--game-stat-bar-border);
     padding-top: 10px;
 }
 
@@ -1199,7 +1426,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 6px 10px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--sim-item-bg);
     border-radius: 6px;
 }
 
@@ -1216,7 +1443,10 @@ body {
 .rank-5 { background: #475569; color: #cbd5e1; }
 .rank-none { color: var(--text-muted); }
 
-/* Modal Drawer (Saved History) */
+/* --------------------------------------------------------------------------
+   MODAL DRAWER (SAVED HISTORY)
+   -------------------------------------------------------------------------- */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -1240,13 +1470,18 @@ body {
     flex-direction: column;
     padding: 24px;
     gap: 16px;
+    background: var(--modal-bg);
+    border: 1px solid var(--modal-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--modal-border);
     padding-bottom: 12px;
 }
 
@@ -1274,8 +1509,8 @@ body {
 }
 
 .history-item-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--history-item-bg);
+    border: 1px solid var(--modal-border);
     border-radius: var(--radius-sm);
     padding: 12px;
     display: flex;
@@ -1302,7 +1537,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--modal-border);
     padding-top: 12px;
 }
 
@@ -1321,7 +1556,10 @@ body {
     background: rgba(239, 68, 68, 0.3);
 }
 
-/* Toast Message */
+/* --------------------------------------------------------------------------
+   TOAST MESSAGE
+   -------------------------------------------------------------------------- */
+
 .toast-message {
     position: fixed;
     bottom: 30px;
@@ -1346,7 +1584,10 @@ body {
     opacity: 1;
 }
 
-/* Footer */
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+
 .app-footer {
     text-align: center;
     font-size: 0.78rem;
@@ -1359,10 +1600,13 @@ body {
 
 .copyright {
     font-size: 0.72rem;
-    color: #475569;
+    color: var(--text-muted);
 }
 
-/* Responsive adjustments */
+/* --------------------------------------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+
 @media (max-width: 600px) {
     .app-wrapper {
         padding: 16px 12px 30px;
