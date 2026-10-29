@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LOTTO LUXE 6/45 - 프리미엄 로또 행운 번호 추천기</title>
+    <meta name="description" content="AI & 빅데이터 통계, 꿈 해몽 사주 알고리즘, 3D 실시간 추첨기 물리 시뮬레이션을 갖춘 프리미엄 로또 6/45 번호 추천기">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern luxury typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animated Stars & Mesh Glow -->
+    <div class="bg-glow-orb bg-glow-1"></div>
+    <div class="bg-glow-orb bg-glow-2"></div>
+    <div class="bg-glow-orb bg-glow-3"></div>
+
+    <!-- Celebration Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-badge">
+                    <span class="logo-clover">🍀</span>
+                    <div class="logo-text">
+                        <span class="logo-sub">PREMIUM AI & STATS</span>
+                        <h1 class="logo-title">LOTTO <span>LUXE</span> 6/45</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <!-- Sound Toggle -->
+                <button id="sound-toggle-btn" class="icon-btn" title="사운드 켜기/끄기" aria-label="사운드 토글">
+                    <span id="sound-icon">🔊</span>
+                </button>
+                <!-- Saved History Drawer Toggle -->
+                <button id="history-toggle-btn" class="icon-btn with-badge" title="내 번호 보관함" aria-label="내 번호 보관함">
+                    <span>⭐</span>
+                    <span class="badge-count" id="saved-count-badge">0</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Live Luck Ticker -->
+        <div class="luck-ticker-bar">
+            <div class="ticker-icon">✨</div>
+            <div class="ticker-text" id="live-luck-text">오늘의 황금 기운 지수: <strong>98.7%</strong> — 재물운과 직관력이 최고조인 날입니다!</div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <main class="main-layout">
+            <!-- Left / Top Column: Machine & Strategy Controls -->
+            <section class="control-panel glass-card">
+                <!-- 3D Physics Lottery Drum Simulation -->
+                <div class="machine-container">
+                    <div class="machine-glass-globe">
+                        <div class="globe-shine"></div>
+                        <canvas id="machine-canvas" width="280" height="280"></canvas>
+                        <div class="globe-rim"></div>
+                    </div>
+                    <div class="machine-pedestal">
+                        <span class="pedestal-led live-led">LIVE ENGINE</span>
+                        <div class="machine-status" id="machine-status-text">준비 완료 • 번호를 추첨해주세요</div>
+                    </div>
+                </div>
+
+                <!-- Strategy Mode Tabs -->
+                <div class="strategy-section">
+                    <label class="section-label">추천 알고리즘 선택</label>
+                    <div class="strategy-tabs">
+                        <button class="strategy-tab active" data-mode="random">
+                            <span class="tab-icon">🎲</span>
+                            <span class="tab-name">완전 랜덤</span>
+                        </button>
+                        <button class="strategy-tab" data-mode="hot">
+                            <span class="tab-icon">🔥</span>
+                            <span class="tab-name">최다 빈출</span>
+                        </button>
+                        <button class="strategy-tab" data-mode="cold">
+                            <span class="tab-icon">❄️</span>
+                            <span class="tab-name">미출현 반등</span>
+                        </button>
+                        <button class="strategy-tab" data-mode="balanced">
+                            <span class="tab-icon">⚖️</span>
+                            <span class="tab-name">황금 밸런스</span>
+                        </button>
+                        <button class="strategy-tab" data-mode="dream">
+                            <span class="tab-icon">🔮</span>
+                            <span class="tab-name">꿈·소원 사주</span>
+                        </button>
+                        <button class="strategy-tab" data-mode="custom">
+                            <span class="tab-icon">🎯</span>
+                            <span class="tab-name">고정/제외수</span>
+                        </button>
+                    </div>
+
+                    <!-- Strategy Description Banner -->
+                    <div class="strategy-info" id="strategy-info-box">
+                        <span class="info-tag">🎲 완전 랜덤</span> 1부터 45까지 무작위 확률로 균등하게 6개 번호를 추첨합니다.
+                    </div>
+
+                    <!-- Mode Specific Extra Panels -->
+                    <!-- Dream / Wish Keyword Panel -->
+                    <div class="extra-panel" id="dream-panel" style="display: none;">
+                        <label for="dream-input" class="sub-label">오늘 꾼 꿈이나 바라는 소원을 입력하세요</label>
+                        <div class="dream-input-group">
+                            <input type="text" id="dream-input" placeholder="예: 황금 돼지꿈, 용꿈, 바다, 대박나자, 부모님" maxlength="30">
+                            <button id="dream-random-btn" class="secondary-btn" type="button">추천 키워드</button>
+                        </div>
+                    </div>
+
+                    <!-- Custom Fixed / Excluded Numbers Panel -->
+                    <div class="extra-panel" id="custom-panel" style="display: none;">
+                        <div class="custom-guide">
+                            <span class="guide-item"><span class="guide-dot dot-fixed"></span> 1번 클릭: 고정수 (최대 5개)</span>
+                            <span class="guide-item"><span class="guide-dot dot-excluded"></span> 2번 클릭: 제외수</span>
+                            <span class="guide-item"><span class="guide-dot dot-normal"></span> 3번 클릭: 해제</span>
+                            <button id="reset-filter-btn" class="text-link-btn" type="button">초기화</button>
+                        </div>
+                        <div class="number-picker-grid" id="number-picker-grid">
+                            <!-- 1 to 45 buttons generated via JS -->
+                        </div>
+                        <div class="filter-summary">
+                            <div>고정수 (<span id="fixed-count">0</span>/5): <span id="fixed-list" class="filter-badge-list">없음</span></div>
+                            <div>제외수 (<span id="excluded-count">0</span>): <span id="excluded-list" class="filter-badge-list">없음</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Configuration (Number of Games & Speed) -->
+                <div class="game-config-row">
+                    <div class="config-group">
+                        <label class="section-label">추천 게임 수</label>
+                        <div class="segmented-control" id="game-count-selector">
+                            <button class="segment-btn" data-count="1">1게임</button>
+                            <button class="segment-btn" data-count="3">3게임</button>
+                            <button class="segment-btn active" data-count="5">5게임 (1세트)</button>
+                        </div>
+                    </div>
+
+                    <div class="config-group">
+                        <label class="section-label">추첨 모드</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="speed-toggle" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label" id="speed-label">다이나믹 롤링 연출</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Primary CTA Button -->
+                <button id="generate-btn" class="primary-btn glow-btn">
+                    <span class="btn-shine"></span>
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-text">행운의 로또 번호 추첨하기</span>
+                </button>
+            </section>
+
+            <!-- Right Column: Results Display & Tools -->
+            <section class="results-panel glass-card">
+                <div class="results-header">
+                    <div class="results-title-group">
+                        <h2 class="results-title">🍀 이번 회차 추천 조합</h2>
+                        <span class="results-timestamp" id="results-timestamp">추첨 대기 중</span>
+                    </div>
+
+                    <div class="results-quick-actions" id="results-actions" style="display: none;">
+                        <button class="action-btn" id="copy-all-btn" title="전체 번호 텍스트 복사">
+                            <span>📋</span> 복사
+                        </button>
+                        <button class="action-btn" id="save-current-btn" title="보관함에 저장">
+                            <span>⭐</span> 보관
+                        </button>
+                        <button class="action-btn" id="download-ticket-btn" title="로또 복권 이미지 다운로드">
+                            <span>🧾</span> 영수증 저장
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Output Container -->
+                <div id="results-container" class="results-container">
+                    <!-- Default Placeholder State -->
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon-sphere">
+                            <span>🎰</span>
+                        </div>
+                        <h3>황금빛 기운의 번호를 뽑아보세요!</h3>
+                        <p>'행운의 로또 번호 추첨하기' 버튼을 누르면<br>실시간 3D 물리 추첨기가 번호를 추출합니다.</p>
+                        <div class="quick-tips">
+                            <span>💡 Tip: 상단 탭에서 꿈 해몽이나 황금 밸런스 등 다양한 전략을 선택할 수 있습니다.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dream Saju Reading Card (shown when dream mode is used) -->
+                <div id="dream-result-card" class="dream-result-card" style="display: none;">
+                    <div class="dream-card-header">
+                        <span class="crystal-icon">🔮</span>
+                        <h4>AI 사주 & 꿈 해몽 분석 결과</h4>
+                    </div>
+                    <p id="dream-analysis-text" class="dream-card-content"></p>
+                </div>
+
+                <!-- Winning Simulation Tool -->
+                <div class="simulator-box" id="simulator-box" style="display: none;">
+                    <div class="sim-header">
+                        <div class="sim-title">
+                            <span class="sim-icon">🏆</span>
+                            <div>
+                                <h4>가상 로또 당첨 시뮬레이터</h4>
+                                <p>내 추천 번호로 이번 주 가상 1등 번호와 대조해보세요!</p>
+                            </div>
+                        </div>
+                        <button id="sim-draw-btn" class="sim-action-btn">
+                            <span>🎲</span> 가상 당첨번호 추첨
+                        </button>
+                    </div>
+
+                    <!-- Winning Numbers Display -->
+                    <div id="sim-winning-display" class="sim-winning-display" style="display: none;">
+                        <div class="sim-win-row">
+                            <span class="sim-win-label">가상 당첨번호:</span>
+                            <div id="sim-win-balls" class="sim-win-balls"></div>
+                            <span class="sim-plus">+</span>
+                            <div id="sim-bonus-ball" class="sim-bonus-ball"></div>
+                            <span class="sim-bonus-label">보너스</span>
+                        </div>
+                        <!-- Match Result Report -->
+                        <div id="sim-report-list" class="sim-report-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Saved History Modal / Drawer -->
+        <div id="history-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-card glass-card">
+                <div class="modal-header">
+                    <h3>⭐ 내 행운 번호 보관함</h3>
+                    <button id="close-history-btn" class="close-btn" aria-label="닫기">✕</button>
+                </div>
+                <div class="modal-body" id="history-list-container">
+                    <!-- Populated dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button id="clear-all-history-btn" class="danger-btn">전체 비우기</button>
+                    <button id="close-history-bottom-btn" class="secondary-btn">닫기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-message" role="alert"></div>
+
+        <!-- Hidden Canvas for Generating Receipt Image -->
+        <canvas id="receipt-canvas" style="display: none;"></canvas>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>🍀 LOTTO LUXE 6/45는 통계 및 난수 시뮬레이션을 활용한 오락용 번호 추천기입니다.</p>
+            <p class="copyright">건전하고 즐거운 복권 문화를 응원합니다 • 19세 미만 청소년은 복권을 구매할 수 없습니다.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
