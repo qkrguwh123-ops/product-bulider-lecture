@@ -34,6 +34,11 @@
             </div>
 
             <div class="header-actions">
+                <!-- Comments Nav Button -->
+                <a href="#comments-section" id="comments-nav-btn" class="header-link-btn" title="행운 댓글 & 커뮤니티">
+                    <span>💬</span>
+                    <span class="nav-btn-text">댓글</span>
+                </a>
                 <!-- Partnership Inquiry Nav Button -->
                 <a href="#partnership-section" id="partner-nav-btn" class="header-link-btn" title="비즈니스 및 제휴 문의">
                     <span>🤝</span>
@@ -269,6 +274,24 @@
         <!-- Hidden Canvas for Generating Receipt Image -->
         <canvas id="receipt-canvas" style="display: none;"></canvas>
 
+        <!-- Community & Disqus Comments Section -->
+        <section id="comments-section" class="comments-section glass-card">
+            <div class="comments-header">
+                <div class="comments-badge">COMMUNITY & REVIEWS</div>
+                <h2 class="comments-title">💬 행운의 후기 & 실시간 댓글</h2>
+                <p class="comments-desc">오늘 추천받은 번호나 대박 기운, 당첨 소망을 자유롭게 댓글로 나눠보세요! 🍀</p>
+            </div>
+
+            <!-- Disqus Embed Thread -->
+            <div id="disqus_thread" class="disqus-container"></div>
+            <noscript>
+                <div class="disqus-noscript">
+                    댓글을 보거나 작성하려면 자바스크립트를 활성화해주세요.
+                    <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer">Powered by Disqus</a>
+                </div>
+            </noscript>
+        </section>
+
         <!-- Partnership & Business Inquiry Section (Formspree) -->
         <section id="partnership-section" class="partnership-section glass-card">
             <div class="partnership-header">
@@ -354,6 +377,8 @@
         <!-- Footer -->
         <footer class="app-footer">
             <div class="footer-nav">
+                <a href="#comments-section" class="footer-link">💬 행운 댓글 & 커뮤니티</a>
+                <span class="footer-divider">•</span>
                 <a href="#partnership-section" class="footer-link">🤝 비즈니스 & 제휴 문의</a>
                 <span class="footer-divider">•</span>
                 <a href="#" id="footer-top-btn" class="footer-link">🔝 맨 위로</a>

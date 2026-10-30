@@ -238,6 +238,18 @@ body[data-theme="light"] .custom-checkbox {
     background: #ffffff;
     border-color: #cbd5e1;
 }
+body[data-theme="light"] .comments-title {
+    color: #0f172a;
+}
+body[data-theme="light"] .comments-section {
+    border-color: rgba(59, 130, 246, 0.25);
+    background: linear-gradient(180deg, #ffffff 0%, rgba(239, 246, 255, 0.35) 100%);
+}
+body[data-theme="light"] .comments-badge {
+    color: #2563eb;
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
 
 /* --------------------------------------------------------------------------
    CSS RESET & BASE
@@ -1631,6 +1643,76 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   COMMUNITY & DISQUS COMMENTS SECTION
+   -------------------------------------------------------------------------- */
+
+.comments-section {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.03) 100%);
+    scroll-margin-top: 20px;
+}
+
+.comments-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.comments-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+}
+
+.comments-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.comments-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.disqus-container {
+    width: 100%;
+    min-height: 280px;
+    padding: 10px 0;
+}
+
+.disqus-noscript {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+}
+
+.disqus-noscript a {
+    color: var(--sapphire);
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
    PARTNERSHIP & BUSINESS INQUIRY SECTION (FORMSPREE)
    -------------------------------------------------------------------------- */
 
@@ -1981,9 +2063,11 @@ body[data-theme="light"] .status-text h4 {
     .form-grid {
         grid-template-columns: 1fr;
     }
+    .comments-section,
     .partnership-section {
         padding: 24px 16px;
     }
+    .comments-title,
     .partnership-title {
         font-size: 1.3rem;
     }

@@ -709,6 +709,19 @@
                 state.theme = state.theme === 'dark' ? 'light' : 'dark';
                 applyTheme(state.theme);
                 showToast(state.theme === 'dark' ? '다크 모드가 적용되었습니다 🌙' : '화이트 모드가 적용되었습니다 ☀️');
+
+                // Reload Disqus with matching theme if active
+                if (typeof DISQUS !== 'undefined') {
+                    try {
+                        DISQUS.reset({
+                            reload: true,
+                            config: function () {
+                                this.page.identifier = 'lotto-luxe-645-main';
+                                this.page.url = window.location.href.split('#')[0];
+                            }
+                        });
+                    } catch (e) {}
+                }
             });
         }
 
@@ -1504,6 +1517,61 @@
                     if (btnIcon) btnIcon.textContent = originalIcon;
                 }
             });
+        }
+
+        // ==========================================
+        // 13. COMMUNITY & DISQUS COMMENTS LOADER
+        // ==========================================
+        const commentsNavBtn = document.getElementById('comments-nav-btn');
+
+        // Disqus forum shortname (set to repository forum name)
+        const DISQUS_SHORTNAME = 'product-bulider-lecture';
+
+        window.disqus_config = function () {
+            this.page.url = window.location.href.split('#')[0];
+            this.page.identifier = 'lotto-luxe-645-main';
+        };
+
+        function loadDisqus() {
+            if (document.getElementById('disqus-embed-script')) return;
+            const d = document;
+            const s = d.createElement('script');
+            s.id = 'disqus-embed-script';
+            s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
+            s.setAttribute('data-timestamp', +new Date());
+            s.async = true;
+            (d.head || d.body).appendChild(s);
+        }
+
+        // Smooth scroll to comments section
+        if (commentsNavBtn) {
+            commentsNavBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                sound.initContext();
+                const target = document.getElementById('comments-section');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                loadDisqus();
+            });
+        }
+
+        // Lazy load Disqus via IntersectionObserver or DOMContentLoaded
+        if ('IntersectionObserver' in window) {
+            const commentsSec = document.getElementById('comments-section');
+            if (commentsSec) {
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        loadDisqus();
+                        observer.disconnect();
+                    }
+                }, { rootMargin: '350px' });
+                observer.observe(commentsSec);
+            } else {
+                loadDisqus();
+            }
+        } else {
+            loadDisqus();
         }
 
     });
