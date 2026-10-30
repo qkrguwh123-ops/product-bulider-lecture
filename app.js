@@ -1524,11 +1524,17 @@
         // ==========================================
         const commentsNavBtn = document.getElementById('comments-nav-btn');
 
-        // Disqus forum shortname (set to repository forum name)
-        const DISQUS_SHORTNAME = 'product-bulider-lecture';
+        // Verified active Disqus forum shortname ('product-builder-lecture')
+        const DISQUS_SHORTNAME = 'product-builder-lecture';
 
         window.disqus_config = function () {
-            this.page.url = window.location.href.split('#')[0];
+            // Provide canonical production URL if running on local environment
+            const isLocal = window.location.hostname === 'localhost' ||
+                            window.location.hostname === '127.0.0.1' ||
+                            window.location.protocol === 'file:';
+            this.page.url = isLocal
+                ? 'https://qkrguwh123-ops.github.io/product-bulider-lecture/'
+                : window.location.href.split('#')[0];
             this.page.identifier = 'lotto-luxe-645-main';
         };
 
@@ -1556,23 +1562,8 @@
             });
         }
 
-        // Lazy load Disqus via IntersectionObserver or DOMContentLoaded
-        if ('IntersectionObserver' in window) {
-            const commentsSec = document.getElementById('comments-section');
-            if (commentsSec) {
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        loadDisqus();
-                        observer.disconnect();
-                    }
-                }, { rootMargin: '350px' });
-                observer.observe(commentsSec);
-            } else {
-                loadDisqus();
-            }
-        } else {
-            loadDisqus();
-        }
+        // Load Disqus immediately on page ready
+        loadDisqus();
 
     });
 })();
