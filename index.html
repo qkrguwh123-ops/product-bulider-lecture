@@ -34,6 +34,11 @@
             </div>
 
             <div class="header-actions">
+                <!-- Partnership Inquiry Nav Button -->
+                <a href="#partnership-section" id="partner-nav-btn" class="header-link-btn" title="비즈니스 및 제휴 문의">
+                    <span>🤝</span>
+                    <span class="nav-btn-text">제휴 문의</span>
+                </a>
                 <!-- Theme Toggle (Dark / Light) -->
                 <button id="theme-toggle-btn" class="icon-btn" title="다크/화이트 모드 전환" aria-label="테마 전환">
                     <span id="theme-icon">🌙</span>
@@ -264,8 +269,95 @@
         <!-- Hidden Canvas for Generating Receipt Image -->
         <canvas id="receipt-canvas" style="display: none;"></canvas>
 
+        <!-- Partnership & Business Inquiry Section (Formspree) -->
+        <section id="partnership-section" class="partnership-section glass-card">
+            <div class="partnership-header">
+                <div class="partnership-badge">PARTNERSHIP & ADVERTISING</div>
+                <h2 class="partnership-title">🤝 비즈니스 & 제휴 문의</h2>
+                <p class="partnership-desc">LOTTO LUXE와의 광고 제휴, 서비스 협업, 데이터 문의 등 다양한 제안을 환영합니다.<br>양식을 작성해 주시면 담당자가 확인 후 빠른 시일 내에 회신드리겠습니다.</p>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/mqppdbpl" method="POST" class="contact-form">
+                <!-- Anti-spam honeypot -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <!-- Notification Subject -->
+                <input type="hidden" name="_subject" value="[LOTTO LUXE] 새로운 제휴 문의가 접수되었습니다">
+
+                <div class="form-grid">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="contact-name" class="form-label">성함 또는 기업/담당자명 <span class="required-star">*</span></label>
+                        <input type="text" id="contact-name" name="name" class="form-input" placeholder="예: 홍길동 (주식회사 로또랩)" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="contact-email" class="form-label">회신받을 이메일 주소 <span class="required-star">*</span></label>
+                        <input type="email" id="contact-email" name="email" class="form-input" placeholder="partner@example.com" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="contact-phone" class="form-label">연락처 (선택)</label>
+                        <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="예: 010-1234-5678">
+                    </div>
+
+                    <!-- Inquiry Type -->
+                    <div class="form-group">
+                        <label for="contact-type" class="form-label">문의 유형 <span class="required-star">*</span></label>
+                        <select id="contact-type" name="inquiry_type" class="form-select" required>
+                            <option value="광고 및 마케팅 제휴">광고 및 마케팅 제휴</option>
+                            <option value="서비스/콘텐츠 협업">서비스 및 콘텐츠 협업</option>
+                            <option value="데이터/API 연동 제휴">데이터/API 연동 제휴</option>
+                            <option value="기타 제휴 문의" selected>기타 비즈니스 제휴</option>
+                        </select>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="form-group full-width">
+                        <label for="contact-subject" class="form-label">문의 제목 <span class="required-star">*</span></label>
+                        <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="제휴 제안 건목을 간략히 입력해주세요" required>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group full-width">
+                        <label for="contact-message" class="form-label">문의 내용 <span class="required-star">*</span></label>
+                        <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="회사/서비스 소개, 제휴 목적, 협업 방식 등을 상세히 적어주시면 더욱 빠른 검토가 가능합니다." required></textarea>
+                    </div>
+
+                    <!-- Privacy Agreement -->
+                    <div class="form-group full-width form-agreement">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="contact-privacy" name="privacy_agreement" value="동의함" required>
+                            <span class="custom-checkbox"></span>
+                            <span class="checkbox-label">
+                                [필수] 문의 처리 및 원활한 상담 진행을 위한 개인정보(이름, 이메일, 연락처) 수집 및 이용에 동의합니다.
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button & Action Container -->
+                <div class="form-actions">
+                    <button type="submit" id="contact-submit-btn" class="primary-btn submit-inquiry-btn">
+                        <span class="btn-shine"></span>
+                        <span class="btn-icon">📨</span>
+                        <span class="btn-text">제휴 문의 전송하기</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Status Message UI -->
+                <div id="contact-status" class="contact-status-card" style="display: none;"></div>
+            </form>
+        </section>
+
         <!-- Footer -->
         <footer class="app-footer">
+            <div class="footer-nav">
+                <a href="#partnership-section" class="footer-link">🤝 비즈니스 & 제휴 문의</a>
+                <span class="footer-divider">•</span>
+                <a href="#" id="footer-top-btn" class="footer-link">🔝 맨 위로</a>
+            </div>
             <p>🍀 LOTTO LUXE 6/45는 통계 및 난수 시뮬레이션을 활용한 오락용 번호 추천기입니다.</p>
             <p class="copyright">건전하고 즐거운 복권 문화를 응원합니다 • 19세 미만 청소년은 복권을 구매할 수 없습니다.</p>
         </footer>

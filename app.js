@@ -1364,5 +1364,147 @@
             showToast('가상 당첨 대조가 완료되었습니다! 🏆');
         });
 
+        // ==========================================
+        // 12. PARTNERSHIP INQUIRY FORM (FORMSPREE)
+        // ==========================================
+        const contactForm = document.getElementById('contact-form');
+        const contactSubmitBtn = document.getElementById('contact-submit-btn');
+        const contactStatus = document.getElementById('contact-status');
+        const partnerNavBtn = document.getElementById('partner-nav-btn');
+        const footerTopBtn = document.getElementById('footer-top-btn');
+
+        // Escape HTML helper for safe interpolation
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>"']/g, (m) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[m]));
+        }
+
+        // Smooth scroll to partnership section
+        if (partnerNavBtn) {
+            partnerNavBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                sound.initContext();
+                const target = document.getElementById('partnership-section');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => {
+                        const nameInput = document.getElementById('contact-name');
+                        if (nameInput) nameInput.focus();
+                    }, 500);
+                }
+            });
+        }
+
+        // Smooth scroll to top from footer
+        if (footerTopBtn) {
+            footerTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Formspree AJAX Submission
+        if (contactForm && contactSubmitBtn && contactStatus) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                sound.initContext();
+
+                const btnText = contactSubmitBtn.querySelector('.btn-text');
+                const btnIcon = contactSubmitBtn.querySelector('.btn-icon');
+                const originalText = btnText ? btnText.textContent : '제휴 문의 전송하기';
+                const originalIcon = btnIcon ? btnIcon.textContent : '📨';
+
+                // Set loading state
+                contactSubmitBtn.disabled = true;
+                if (btnText) btnText.textContent = '문의 전송 중...';
+                if (btnIcon) btnIcon.textContent = '⏳';
+                contactStatus.style.display = 'none';
+
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        const submittedEmail = data.email || '';
+                        contactForm.reset();
+                        contactStatus.className = 'contact-status-card success';
+                        contactStatus.innerHTML = `
+                            <div class="status-icon">🎉</div>
+                            <div class="status-text">
+                                <h4>제휴 문의가 성공적으로 접수되었습니다!</h4>
+                                <p>입력하신 회신 이메일(<strong>${escapeHtml(submittedEmail)}</strong>)로 담당자가 확인 후 빠른 시일 내에 연락드리겠습니다.</p>
+                                <button type="button" class="secondary-btn" id="write-again-btn" style="margin-top: 10px;">추가 문의 작성하기</button>
+                            </div>
+                        `;
+                        contactStatus.style.display = 'flex';
+
+                        // Bind write again button
+                        const writeAgainBtn = document.getElementById('write-again-btn');
+                        if (writeAgainBtn) {
+                            writeAgainBtn.addEventListener('click', () => {
+                                contactStatus.style.display = 'none';
+                                const nameInput = document.getElementById('contact-name');
+                                if (nameInput) nameInput.focus();
+                            });
+                        }
+
+                        // Celebration sound & confetti
+                        sound.playFanfare();
+                        confetti.burst(80);
+                        showToast('제휴 문의가 성공적으로 전송되었습니다! 💌');
+                    } else {
+                        let errMsg = '문의 전송에 실패했습니다. 입력값을 확인해주세요.';
+                        try {
+                            const errData = await response.json();
+                            if (errData && errData.errors && Array.isArray(errData.errors)) {
+                                errMsg = errData.errors.map(err => err.message).join(', ');
+                            }
+                        } catch (parseErr) {}
+
+                        contactStatus.className = 'contact-status-card error';
+                        contactStatus.innerHTML = `
+                            <div class="status-icon">⚠️</div>
+                            <div class="status-text">
+                                <h4>전송 실패</h4>
+                                <p>${escapeHtml(errMsg)}</p>
+                            </div>
+                        `;
+                        contactStatus.style.display = 'flex';
+                        showToast('문의 전송 실패: 다시 시도해주세요.');
+                    }
+                } catch (networkErr) {
+                    contactStatus.className = 'contact-status-card error';
+                    contactStatus.innerHTML = `
+                        <div class="status-icon">⚠️</div>
+                        <div class="status-text">
+                            <h4>네트워크 오류가 발생했습니다.</h4>
+                            <p>인터넷 연결 상태를 확인하시거나 잠시 후 다시 시도해주세요.</p>
+                        </div>
+                    `;
+                    contactStatus.style.display = 'flex';
+                    showToast('네트워크 오류가 발생했습니다.');
+                } finally {
+                    contactSubmitBtn.disabled = false;
+                    if (btnText) btnText.textContent = originalText;
+                    if (btnIcon) btnIcon.textContent = originalIcon;
+                }
+            });
+        }
+
     });
 })();
