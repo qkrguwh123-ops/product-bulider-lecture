@@ -27,6 +27,58 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org JSON-LD for WebApplication & FAQPage (SEO & AdSense Quality) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "AI 동물상 테스트 (AI Animal Face Test)",
+          "url": "https://qkrguwh123-ops.github.io/product-bulider-lecture/",
+          "description": "구글 인공지능 Teachable Machine 딥러닝 비전 기술을 통해 사진 한 장으로 강아지상, 고양이상, 토끼상, 여우상 등 얼굴형과 특징을 정밀 분석하는 온라인 AI 동물상 테스트 서비스입니다.",
+          "applicationCategory": "EntertainmentApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "AI 동물상 테스트의 사진은 서버에 저장되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아닙니다. 모든 안면 분석은 사용자의 웹 브라우저 내부에서 TensorFlow.js 딥러닝 엔진을 통해 온디바이스(On-Device)로 즉각 연산되며, 서버로 사진이 전송되거나 저장되지 않아 안심하고 이용하실 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "가장 정확한 동물상 분석 결과를 얻으려면 어떻게 해야 하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "조명이 밝고 이목구비(눈, 코, 입, 턱선)가 선명하게 드러난 정면 사진을 업로드할 때 가장 높은 판별 정확도를 제공합니다. 안경이나 마스크를 벗은 사진을 권장합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "대표적인 동물상에는 어떤 유형이 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "다정하고 사랑스러운 강아지상, 도도하고 매혹적인 고양이상, 귀엽고 발랄한 토끼상, 세련되고 지적인 여우상, 입체적이고 카리스마 넘치는 공룡상, 청순하고 우아한 사슴상 등이 있습니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Background Animated Glow -->
@@ -50,17 +102,17 @@
                 </a>
             </div>
 
+            <!-- Global Category Navigation -->
+            <nav class="main-nav" aria-label="메인 메뉴">
+                <a href="#test-section" class="nav-item active">🎯 AI 테스트</a>
+                <a href="#encyclopedia-section" class="nav-item">📖 동물상 도감</a>
+                <a href="#technology-section" class="nav-item">🧠 AI 분석 원리</a>
+                <a href="#faq-section" class="nav-item">❓ FAQ</a>
+                <a href="#comments-section" class="nav-item">💬 댓글</a>
+                <a href="#partnership-section" class="nav-item">🤝 제휴 문의</a>
+            </nav>
+
             <div class="header-actions">
-                <!-- Comments Nav Button -->
-                <a href="#comments-section" id="comments-nav-btn" class="header-link-btn" title="실시간 댓글 & 커뮤니티">
-                    <span>💬</span>
-                    <span class="nav-btn-text">댓글</span>
-                </a>
-                <!-- Partnership Inquiry Nav Button -->
-                <a href="#partnership-section" id="partner-nav-btn" class="header-link-btn" title="비즈니스 및 제휴 문의">
-                    <span>🤝</span>
-                    <span class="nav-btn-text">제휴 문의</span>
-                </a>
                 <!-- Theme Toggle (Dark / Light) -->
                 <button id="theme-toggle-btn" class="icon-btn" title="다크/화이트 모드 전환" aria-label="테마 전환">
                     <span id="theme-icon">🌙</span>
@@ -93,7 +145,7 @@
         <!-- Main Content Layout -->
         <main class="main-layout">
             <!-- Testing Card Area -->
-            <section class="test-card glass-card">
+            <section id="test-section" class="test-card glass-card">
                 <!-- Hero Header -->
                 <div class="hero-header">
                     <div class="hero-badge">AI DEEP LEARNING FACIAL TEST</div>
@@ -183,6 +235,314 @@
                 <script>
                      (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+            </div>
+        </section>
+
+        <!-- 1. Animal Face Encyclopedia & Styling Guide -->
+        <section id="encyclopedia-section" class="encyclopedia-section glass-card">
+            <div class="section-badge-header">
+                <div class="category-badge">ANIMAL FACE ENCYCLOPEDIA</div>
+                <h2 class="section-title">📖 AI 동물상 관상학 & 스타일링 도감</h2>
+                <p class="section-desc">얼굴의 이목구비 비율과 각도에 따라 분류되는 대표적인 동물상들의 해부학적 특징, 고유의 분위기, 그리고 매력을 극대화하는 스타일링 팁을 확인해보세요.</p>
+            </div>
+
+            <div class="encyclopedia-grid">
+                <!-- 1. Puppy Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🐶</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">호감형 & 친근함</span>
+                            <h3 class="animal-name">강아지상 (Puppy Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">눈머리보다 눈꼬리가 살짝 아래로 완만하게 떨어지는 선한 눈매가 가장 큰 특징입니다. 하안부(턱선)가 각지지 않고 둥글며, 도톰한 볼살과 상대적으로 짧은 인중이 어우러져 동안 이미지를 완성합니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">다정다감하고 사람을 무장해제시키는 독보적인 친근함과 신뢰감을 줍니다. 첫인상에서 호감도가 매우 높으며, 대인관계에서 따뜻하고 포용력 있는 에너지를 발산합니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">지나치게 날카로운 각진 프레임보다는 둥근 라운드 안경이 잘 어울립니다. 메이크업은 부드러운 피치·브라운 계열의 자연스러운 음영을 추천하며, 헤어는 부드러운 C컬이나 쉐도우 펌으로 선한 볼륨감을 살리는 것이 이상적입니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">박보검, 송중기, 정국(BTS), 백현, 박보영, 아이유, 츄</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Cat Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🐱</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">매혹 & 시크</span>
+                            <h3 class="animal-name">고양이상 (Cat Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">눈 앞머리가 날렵하고 눈꼬리가 위쪽으로 매혹적으로 뻗은 아몬드형 눈매가 돋보입니다. 콧날이 오뚝하고 턱선이 턱 끝으로 갈수록 날렵하게 모이는 V라인 페이스라인을 지니고 있습니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">차갑고 도도해 보여 쉽게 다가가기 어렵지만, 알수록 독보적인 개성과 반전 매력에 빠져들게 됩니다. 트렌디하고 세련되며 현대적인 패션 감각을 상징합니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">눈꼬리를 살짝 빼주는 캣츠아이 라인과 세련된 쿨톤 스모키 또는 레드 립이 매우 잘 어울립니다. 슬릭컷, 칼단발 또는 볼드한 실버 액세서리와 캣아이 쉐입의 선글라스를 매치하면 세련미가 배가됩니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">강동원, 슈가(BTS), 주지훈, 이준기, 제니(블랙핑크), 한소희, 노제</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. Rabbit Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🐰</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">사랑스러움 & 과즙미</span>
+                            <h3 class="animal-name">토끼상 (Rabbit Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">동그랗고 맑은 눈망울과 웃을 때 살짝 보이는 귀여운 앞니, 그리고 도톰한 윗입술이 핵심 포인트입니다. 이목구비가 얼굴 중앙에 균형감 있게 모여 있으며 동안의 대표적인 요소를 두루 갖추고 있습니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">보호본능을 자극하는 사랑스러움과 상큼한 과즙미가 넘쳐납니다. 주변 사람들에게 밝고 긍정적인 에너지를 전파하며 언제나 활기찬 분위기를 만듭니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">생기를 부여하는 코랄 틴트와 맑은 크림 치크가 최고의 선택입니다. 헤어는 시스루 뱅이나 잔머리를 자연스럽게 연출한 반묶음, 밝은 브라운 계열의 염색이 토끼상의 화사함을 극대화합니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">수지, 나연(트와이스), 장원영(아이브), 정한(세븐틴), 보민</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. Fox Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🦊</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">지적 & 도회적</span>
+                            <h3 class="animal-name">여우상 (Fox Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">가로로 길고 시원하게 트인 눈매와 날렵한 콧대, 그리고 살짝 올라간 입꼬리가 특징입니다. 고양이상보다 선이 가늘고 섬세하며, 속쌍꺼풀이나 매력적인 무쌍 비율이 높습니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">지적이고 영민하며 도회적인 아우라를 풍깁니다. 묘한 신비감과 함께 지적인 섹시함을 지니고 있어 패션 화보나 감각적인 비주얼에서 큰 주목을 받습니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">군더더기 없는 미니멀룩과 슬림핏 수트가 어울리며, 클래식한 메탈 안경이 지적인 매력을 배가시킵니다. 자연스럽게 가르마를 탄 리프컷이나 스트레이트 롱헤어가 조화를 이룹니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">서인국, 황민현, 지코, 육성재, 예지(ITZY), 경리</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. Dinosaur Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🦕</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">카리스마 & 입체감</span>
+                            <h3 class="animal-name">공룡상 (Dinosaur Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">뚜렷한 T존과 깊은 안와상융기(눈썹뼈), 시원하게 큰 입매와 입체적으로 발달한 하악골(턱뼈)이 특징입니다. 이목구비의 선이 굵직하고 골격미가 돋보입니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">강렬한 남성미와 압도적인 카리스마, 그리고 듬직한 신뢰감을 전해줍니다. 한눈에 시선을 사로잡는 마스크로 연기력과 무대 장악력에서 독보적인 존재감을 발휘합니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">이마를 시원하게 오픈하는 포마드, 가일컷, 또는 올백 헤어가 굵은 T존을 빛나게 합니다. 테일러드 블레이저, 가죽 재킷, 볼드한 남성 워치와의 매칭이 추천됩니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">공유, 김우빈, 류준열, 탑, 홍종현</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. Deer Face -->
+                <article class="encyclopedia-card">
+                    <div class="card-top-header">
+                        <span class="animal-icon-large">🦌</span>
+                        <div class="animal-meta">
+                            <span class="animal-tag">청초 & 우아함</span>
+                            <h3 class="animal-name">사슴상 (Deer Face)</h3>
+                        </div>
+                    </div>
+                    <div class="card-content-body">
+                        <div class="content-block">
+                            <h4 class="block-title">📐 이목구비 해부학적 특징</h4>
+                            <p class="block-text">호수처럼 맑고 깊은 눈망울과 길고 가녀린 목선, 좁고 단정한 콧볼이 어우러집니다. 전체적인 얼굴 윤곽선이 매우 매끄럽고 여백의 미가 돋보이는 비율을 갖추고 있습니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">✨ 고유 분위기 & 인상</h4>
+                            <p class="block-text">순수하고 청초하며 고결한 귀족적 아우라를 풍깁니다. 단정하고 기품이 느껴지는 첫인상으로 누구에게나 편안하면서도 우아한 감동을 줍니다.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4 class="block-title">💄 추천 스타일링 & 헤어 팁</h4>
+                            <p class="block-text">맑은 피부 표현에 집중하는 수채화 누드 메이크업이 찰떡입니다. 긴 목선을 살려주는 넥라인(보트넥, V넥) 의상과 내추럴 웨이브 헤어, 얇고 섬세한 주얼리가 기품을 높여줍니다.</p>
+                        </div>
+                        <div class="content-block celebs">
+                            <span class="celeb-label">대표 닮은꼴:</span>
+                            <span class="celeb-names">윤아(소녀시대), 이연희, 차은우, 박형식, 배인혁</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 2. AI Technology & Privacy Mechanism -->
+        <section id="technology-section" class="technology-section glass-card">
+            <div class="section-badge-header">
+                <div class="category-badge">AI VISION & MECHANISM</div>
+                <h2 class="section-title">🧠 딥러닝 비전 AI 안면인식 기술 원리</h2>
+                <p class="section-desc">구글 Teachable Machine과 TensorFlow.js 기반으로 구축된 AI 동물상 분석 엔진의 알고리즘과 철저한 프라이버시 보호 구조를 소개합니다.</p>
+            </div>
+
+            <div class="tech-steps-grid">
+                <div class="tech-step-card">
+                    <div class="step-num">01</div>
+                    <div class="step-icon">👁️</div>
+                    <h3 class="step-title">안면 랜드마크 다차원 검출</h3>
+                    <p class="step-desc">업로드된 이미지에서 얼굴의 위치를 실시간 탐지하고, 눈꼬리 각도, 코끝 높이, 인중 길이, 광대뼈 및 하악각 턱선 곡률 등 68개 이상의 핵심 좌표(Facial Landmarks)를 다차원 벡터 데이터로 정밀 추출합니다.</p>
+                </div>
+
+                <div class="tech-step-card">
+                    <div class="step-num">02</div>
+                    <div class="step-icon">🤖</div>
+                    <h3 class="step-title">CNN 합성곱 신경망 가중치 분석</h3>
+                    <p class="step-desc">추출된 특징 벡터를 수만 장의 얼굴 데이터셋으로 사전 지도학습(Supervised Learning)된 합성곱 신경망(CNN) 모델에 전달합니다. 모델은 강아지상, 고양이상 등의 카테고리별 패턴 확률 분포를 정밀 계산합니다.</p>
+                </div>
+
+                <div class="tech-step-card">
+                    <div class="step-num">03</div>
+                    <div class="step-icon">🛡️</div>
+                    <h3 class="step-title">온디바이스(On-Device) 보안 연산</h3>
+                    <p class="step-desc">사용자의 사진은 절대 외부 서버로 전송되거나 클라우드 데이터베이스에 저장되지 않습니다. 사용자 웹 브라우저의 WebGL GPU 가속을 활용해 메모리 내에서만 즉각 추론되고 분석 완료 즉시 영구 파기됩니다.</p>
+                </div>
+            </div>
+
+            <div class="tech-callout-box">
+                <div class="callout-icon">💡</div>
+                <div class="callout-body">
+                    <h4>과학적 관상 분석과 엔터테인먼트의 만남</h4>
+                    <p>본 서비스는 인공지능 컴퓨터 비전(Computer Vision) 기술을 통해 얼굴의 구조적 비율을 통계학적으로 분석하여 가장 높은 유사도를 가진 동물상 카테고리를 도출합니다. 결과는 자신만의 매력을 발견하고 재미있게 소통하기 위한 엔터테인먼트 가이드로 활용하시길 권장합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Interactive FAQ Section -->
+        <section id="faq-section" class="faq-section glass-card">
+            <div class="section-badge-header">
+                <div class="category-badge">FREQUENTLY ASKED QUESTIONS</div>
+                <h2 class="section-title">❓ 자주 묻는 질문 (FAQ)</h2>
+                <p class="section-desc">AI 동물상 테스트 이용과 관련하여 많은 분들이 궁금해하시는 핵심 질문들을 모았습니다.</p>
+            </div>
+
+            <div class="faq-accordion-list">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">업로드한 제 사진이 서버에 저장되거나 외부에 유출되나요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>전혀 저장되지 않습니다.</strong> 본 서비스는 Google TensorFlow.js 엔진을 기반으로 설계되어, 모든 인공지능 이미지 분석이 사용자의 기기(스마트폰 또는 PC 웹 브라우저 내부)에서 100% 온디바이스(On-Device)로 수행됩니다. 이미지 파일이 인터넷을 통해 외부 서버로 전송되는 일이 없으므로 안심하고 이용하실 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">가장 정확한 동물상 분석 결과를 얻으려면 어떤 사진이 좋은가요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>이목구비(눈, 코, 입, 턱선)가 선명하게 드러난 <strong>정면 사진</strong>이 가장 정확합니다. 조명이 고르고 얼굴 그림자가 적을수록 좋으며, 얼굴의 윤곽을 가리지 않는 헤어스타일과 안경·마스크를 착용하지 않은 단독 사진을 권장합니다.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">동물상 확률이 50:50 또는 비슷하게 나오는 이유는 무엇인가요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>많은 분들이 두 가지 동물상의 특징을 동시에 지닌 '복합 매력형' 얼굴을 가지고 있습니다. 예를 들어, 눈매는 고양이상처럼 시원하게 올라갔지만 하안부(턱선)와 볼살은 강아지상처럼 부드러운 경우 '개냥이상'으로 균형 잡힌 확률이 도출될 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">안경이나 메이크업을 한 상태로 테스트해도 되나요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>네, 가능합니다. 다만 두꺼운 뿔테 안경이나 과도한 색조 화장(예: 짙은 아이라인)은 인공지능이 눈꼬리 각도나 눈동자의 형태를 판별하는 과정에서 실제보다 고양이상 확률을 높게 판단하는 등의 영향을 줄 수 있으므로, 본연의 동물상을 확인하시려면 가벼운 데일리 상태의 사진을 추천합니다.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">직접 만든 Teachable Machine 모델 URL은 어떻게 적용하나요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>페이지 상단의 <strong>[AI 모델 설정 (Teachable Machine URL 변경)]</strong> 메뉴를 클릭한 뒤, Google Teachable Machine에서 학습시키고 Export하여 발급받은 클라우드 모델 URL(예: <code>https://teachablemachine.withgoogle.com/models/MODEL_ID/</code>)을 입력하고 [모델 불러오기]를 누르시면 본인만의 커스텀 AI 모델로 즉시 테스트를 즐기실 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span class="faq-q-badge">Q</span>
+                        <span class="faq-q-text">광고 배너 제휴 및 비즈니스 협업은 어떻게 진행되나요?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>페이지 하단의 <strong>[비즈니스 & 제휴 문의]</strong> 섹션에서 기업명, 제휴 유형, 제안 내용을 작성해 주시면 담당자가 영업일 기준 24시간 이내에 입력하신 이메일로 상세한 안내와 제안서를 회신드립니다.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -292,15 +652,122 @@
         <!-- Footer -->
         <footer class="app-footer">
             <div class="footer-nav">
-                <a href="#comments-section" class="footer-link">💬 동물상 후기 댓글</a>
+                <a href="#test-section" class="footer-link">🎯 AI 테스트</a>
                 <span class="footer-divider">•</span>
-                <a href="#partnership-section" class="footer-link">🤝 비즈니스 & 제휴 문의</a>
+                <a href="#encyclopedia-section" class="footer-link">📖 동물상 도감</a>
+                <span class="footer-divider">•</span>
+                <a href="#technology-section" class="footer-link">🧠 AI 기술 원리</a>
+                <span class="footer-divider">•</span>
+                <a href="#faq-section" class="footer-link">❓ 자주 묻는 질문</a>
+                <span class="footer-divider">•</span>
+                <a href="#comments-section" class="footer-link">💬 후기 댓글</a>
+                <span class="footer-divider">•</span>
+                <a href="#partnership-section" class="footer-link">🤝 제휴 문의</a>
+            </div>
+
+            <div class="footer-policies">
+                <button type="button" class="policy-open-btn" data-modal="privacy-modal">🔒 개인정보처리방침</button>
+                <span class="footer-divider">•</span>
+                <button type="button" class="policy-open-btn" data-modal="terms-modal">📜 이용약관</button>
+                <span class="footer-divider">•</span>
+                <button type="button" class="policy-open-btn" data-modal="about-modal">ℹ️ 서비스 소개 & 면책조항</button>
                 <span class="footer-divider">•</span>
                 <a href="#" id="footer-top-btn" class="footer-link">🔝 맨 위로</a>
             </div>
-            <p>🐾 AI 동물상 테스트는 Google Teachable Machine 인공지능 비전 모델을 활용한 재미 기반 테스트 서비스입니다.</p>
-            <p class="copyright">업로드된 모든 이미지는 서버에 저장되지 않으며, 사용자 브라우저 내부에서만 안전하게 연산됩니다.</p>
+
+            <p class="footer-desc">🐾 AI 동물상 테스트는 Google Teachable Machine 인공지능 컴퓨터 비전 모델을 활용한 지식 및 엔터테인먼트 서비스입니다.</p>
+            <p class="copyright">Copyright © 2026 AI 동물상 테스트. All rights reserved. 업로드된 이미지는 서버에 절대 저장되지 않으며 사용자 브라우저 내부에서만 안전하게 연산됩니다.</p>
         </footer>
+    </div>
+
+    <!-- Policy Modals Container -->
+    <!-- 1. Privacy Policy Modal (Includes Google AdSense Cookie / Opt-out Mandates) -->
+    <div id="privacy-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" style="display: none;">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3 id="privacy-modal-title">🔒 개인정보처리방침 (Privacy Policy)</h3>
+                <button type="button" class="modal-close-btn" aria-label="닫기">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="policy-update-date"><strong>시행일자: 2026년 11월 1일</strong></p>
+                
+                <h4>제1조 (기본 방침 및 이미지 데이터의 온디바이스 처리)</h4>
+                <p>본 'AI 동물상 테스트'(이하 '서비스')는 이용자의 개인정보 및 프라이버시를 최우선으로 보호합니다. 이용자가 동물상 판별을 위해 업로드한 얼굴 사진은 <strong>어떠한 외부 서버나 데이터베이스에도 전송·저장·수집되지 않습니다.</strong> 모든 안면 분석은 이용자 본인의 웹 브라우저(온디바이스, On-Device) 내부에서 TensorFlow.js 엔진을 통해 실시간 연산된 후 즉시 소멸합니다.</p>
+
+                <h4>제2조 (Google AdSense 및 제3자 쿠키 사용 안내)</h4>
+                <p>본 서비스는 웹사이트 운영 및 무료 콘텐츠 제공을 위해 Google을 비롯한 제3자 광고 사업자의 광고 서비스(Google AdSense)를 이용하고 있습니다.</p>
+                <ul>
+                    <li>Google을 포함한 제3자 공급업체는 사용자가 본 웹사이트나 다른 웹사이트를 방문한 과거 기록을 바탕으로 광고를 게재하기 위해 쿠키(Cookie)를 사용합니다.</li>
+                    <li>Google은 광고 쿠키를 사용함으로써 본 사이트 및 인터넷의 다른 사이트 방문 기록을 기반으로 사용자에게 적절한 맞춤형 광고를 제공할 수 있습니다.</li>
+                    <li>사용자는 언제든지 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>을 방문하여 맞춤형 광고를 선택 해제(Opt-out)할 수 있습니다.</li>
+                    <li>또한, <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>를 방문하여 제3자 공급업체의 맞춤형 광고용 쿠키 사용을 일괄적으로 차단할 수 있습니다.</li>
+                </ul>
+
+                <h4>제3조 (제휴 문의 시 수집하는 개인정보 항목 및 목적)</h4>
+                <p>본 서비스는 '비즈니스 및 제휴 문의' 접수 시 원활한 상담과 회신을 위해 아래와 같은 최소한의 개인정보를 수집합니다.</p>
+                <ul>
+                    <li>수집 항목: 성함/기업명, 회신 이메일 주소, 연락처(선택), 문의 내용</li>
+                    <li>수집 및 이용 목적: 제휴 제안 검토, 답변 회신 및 상담 진행</li>
+                    <li>보유 및 이용 기간: 문의 처리 완료 후 관련 법령에 따라 최대 3년간 보관 후 지체 없이 영구 파기합니다.</li>
+                </ul>
+
+                <h4>제4조 (개인정보 보호 책임자 및 문의처)</h4>
+                <p>개인정보 처리와 관련된 문의사항이나 의견은 사이트 내 [제휴 문의] 양식을 통해 전달해 주시면 성실히 처리해 드리겠습니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="primary-btn modal-confirm-btn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Terms of Service Modal -->
+    <div id="terms-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" style="display: none;">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3 id="terms-modal-title">📜 서비스 이용약관 (Terms of Service)</h3>
+                <button type="button" class="modal-close-btn" aria-label="닫기">✕</button>
+            </div>
+            <div class="modal-body">
+                <h4>제1조 (목적)</h4>
+                <p>본 약관은 'AI 동물상 테스트'가 제공하는 온라인 인공지능 안면 분석 및 관련 정보 콘텐츠 서비스의 이용 조건과 권리·의무 사항을 규정함을 목적으로 합니다.</p>
+
+                <h4>제2조 (서비스의 제공 및 변경)</h4>
+                <p>본 서비스는 모든 사용자에게 무료로 제공되는 비상업적·엔터테인먼트 목적의 웹 애플리케이션입니다. 서비스는 운영상, 기술상의 필요에 따라 사전 고지 없이 업데이트되거나 수정될 수 있습니다.</p>
+
+                <h4>제3조 (면책 조항)</h4>
+                <p>본 서비스의 인공지능 동물상 분석 결과는 딥러닝 비전 모델의 통계적 패턴 분류에 기반한 것으로, 의학적·과학적·관상학적 절대적 진단이 아니며 순수한 엔터테인먼트 및 소통 목적으로 제공됩니다. 서비스 이용 결과로 인한 어떠한 직접적·간접적 손해에 대해서도 운영자는 법적 책임을 지지 않습니다.</p>
+
+                <h4>제4조 (지식재산권)</h4>
+                <p>본 사이트 내의 텍스트, 도감 콘텐츠, 디자인 요소, UI 구성에 관한 저작권 및 지식재산권은 본 서비스 운영자에게 귀속됩니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="primary-btn modal-confirm-btn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. About Us & Disclaimer Modal -->
+    <div id="about-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" style="display: none;">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3 id="about-modal-title">ℹ️ 서비스 소개 & 면책조항 (About Us)</h3>
+                <button type="button" class="modal-close-btn" aria-label="닫기">✕</button>
+            </div>
+            <div class="modal-body">
+                <h4>🐾 서비스 소개 (About AI Animal Face Test)</h4>
+                <p>'AI 동물상 테스트'는 구글의 머신러닝 오픈 비전 프레임워크인 Teachable Machine과 TensorFlow.js 기술을 활용하여, 누구나 손쉽게 자신의 얼굴형과 이목구비 매력을 탐구하고 친구들과 즐겁게 소통할 수 있도록 제작된 지식·엔터테인먼트 플랫폼입니다.</p>
+                <p>단순한 일회성 재미를 넘어, 동물상별 해부학적 이목구비 특징, 어울리는 스타일링 및 메이크업 가이드, 그리고 컴퓨터 비전 인공지능의 원리를 알기 쉽게 전달함으로써 사용자에게 유익하고 차별화된 가치를 제공합니다.</p>
+
+                <h4>🔒 안전한 기술 구조 (Privacy-First)</h4>
+                <p>우리는 사용자의 사생활을 소중히 여깁니다. 대부분의 인공지능 테스트 사이트가 사진을 서버로 전송하는 것과 달리, 본 서비스는 100% 클라이언트 브라우저 연산(Client-side On-Device Inference)을 채택하여 사진 유출 걱정 없이 안전하게 이용하실 수 있습니다.</p>
+
+                <h4>⚠️ 면책 고지 (Disclaimer)</h4>
+                <p>도출되는 확률 수치 및 연예인 닮은꼴 정보는 인공지능 비전 모델의 시각적 유사도 분석에 기초한 재미 요소입니다. 본 결과를 타인에 대한 평가나 편견의 잣대로 활용하지 마시고, 자신만의 긍정적인 매력을 재발견하는 계기로 즐겨주시길 바랍니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="primary-btn modal-confirm-btn">확인</button>
+            </div>
+        </div>
     </div>
 
     <!-- Main Logic Script -->

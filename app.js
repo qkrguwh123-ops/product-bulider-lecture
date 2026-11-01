@@ -593,5 +593,118 @@
             });
         }
 
+        // ==========================================
+        // 9. FAQ ACCORDION INTERACTION
+        // ==========================================
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+
+                // Close other items for neat accordion behavior
+                faqQuestions.forEach(otherBtn => {
+                    const otherItem = otherBtn.closest('.faq-item');
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('open');
+                        otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                if (isOpen) {
+                    item.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ==========================================
+        // 10. POLICY MODALS (PRIVACY / TERMS / ABOUT)
+        // ==========================================
+        const policyButtons = document.querySelectorAll('.policy-open-btn');
+        const modalBackdrops = document.querySelectorAll('.modal-backdrop');
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+        }
+
+        function closeModal(modal) {
+            if (!modal) return;
+            modal.style.display = 'none';
+            // Check if any modal is still open
+            const anyOpen = Array.from(modalBackdrops).some(m => m.style.display === 'flex');
+            if (!anyOpen) {
+                document.body.style.overflow = '';
+            }
+        }
+
+        policyButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = btn.getAttribute('data-modal');
+                if (modalId) openModal(modalId);
+            });
+        });
+
+        modalBackdrops.forEach(backdrop => {
+            // Close when clicking outside modal-card
+            backdrop.addEventListener('click', (e) => {
+                if (e.target === backdrop) {
+                    closeModal(backdrop);
+                }
+            });
+
+            // Close buttons
+            const closeBtns = backdrop.querySelectorAll('.modal-close-btn, .modal-confirm-btn');
+            closeBtns.forEach(cBtn => {
+                cBtn.addEventListener('click', () => closeModal(backdrop));
+            });
+        });
+
+        // Close on ESC key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modalBackdrops.forEach(backdrop => {
+                    if (backdrop.style.display === 'flex') {
+                        closeModal(backdrop);
+                    }
+                });
+            }
+        });
+
+        // ==========================================
+        // 11. ACTIVE NAV HIGHLIGHT ON SCROLL
+        // ==========================================
+        const navItems = document.querySelectorAll('.main-nav .nav-item');
+        const sections = document.querySelectorAll('section[id]');
+
+        if ('IntersectionObserver' in window && navItems.length > 0 && sections.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navItems.forEach(item => {
+                            if (item.getAttribute('href') === `#${id}`) {
+                                item.classList.add('active');
+                            } else {
+                                item.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.25,
+                rootMargin: '-80px 0px -50% 0px'
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+        }
+
     });
 })();
