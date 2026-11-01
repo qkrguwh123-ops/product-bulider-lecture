@@ -1263,6 +1263,40 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   GOOGLE ADSENSE BANNER
+   -------------------------------------------------------------------------- */
+
+.ad-banner-section {
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.ad-container {
+    width: 100%;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ad-container .adsbygoogle {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
    RESPONSIVE ADJUSTMENTS
    -------------------------------------------------------------------------- */
 
